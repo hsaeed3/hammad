@@ -1,6 +1,3 @@
 interface:
   display_name: "Python SDK Ergonomics"
   short_description: "Apply opinionated Python SDK ergonomics rules to any code being written or edited."
-
-policy:
-  allow_implicit_invocation: false

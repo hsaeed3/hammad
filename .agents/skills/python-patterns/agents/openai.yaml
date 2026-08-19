@@ -1,0 +1,3 @@
+interface:
+  display_name: "Python Patterns"
+  short_description: "Apply idiomatic Python patterns and the modern (2026) toolchain — uv, ruff, ty, prek — for building robust, maintainable Python projects."
