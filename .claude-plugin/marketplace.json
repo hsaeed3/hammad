@@ -1,0 +1,16 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
+  "name": "hammad",
+  "description": "Funky, opinionated little toolkit for agent harnesses.",
+  "owner": {
+    "name": "Hammad Saeed",
+    "email": "hammad@supportvectors.com"
+  },
+  "plugins": [
+    {
+      "name": "hammad",
+      "description": "Funky, opinionated little toolkit for agent harnesses.",
+      "source": "./"
+    }
+  ]
+}

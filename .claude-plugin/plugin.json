@@ -1,0 +1,12 @@
+{
+  "name": "hammad",
+  "version": "0.1.0",
+  "description": "Funky, opinionated little toolkit for agent harnesses.",
+  "author": {
+    "name": "Hammad Saeed",
+    "email": "hammad@supportvectors.com"
+  },
+  "skills": [
+    "./.claude/skills/"
+  ]
+}
