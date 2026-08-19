@@ -1,0 +1,3 @@
+interface:
+  display_name: "Zensical Documentation"
+  short_description: "Guide and practices for using the `zensical` Python SDK for writing and generating package documentation."
