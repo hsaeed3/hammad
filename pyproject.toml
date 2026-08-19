@@ -1,0 +1,117 @@
+[build-system]
+requires = ["uv_build>=0.11.26,<0.13"]
+build-backend = "uv_build"
+
+[tool.uv]
+managed = true
+
+[tool.uv.build-backend]
+module-root = "python/"
+module-name = "ham"
+package = true
+
+[project]
+name = "hammad-python"
+version = "0.1.0"
+authors = [{ name = "Hammad Saeed", email = "hammad@supportvectors.com" }]
+description = "Funky, opinionated little toolkit for agent harnesses."
+readme = "README.md"
+license = {"file" = "LICENSE"}
+requires-python = ">=3.10,<3.15"
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Typing :: Typed",
+]
+dependencies = [
+    "typer>=0.27.1",
+]
+
+[dependency-groups]
+dev = [
+    "maturin>=1.9.4,<2.0",
+    "prek",
+    "logfire",
+    "black",
+    # SORT!
+    "isort",
+    "ruff",
+    "uv",
+    "pytest",
+    "pytest-asyncio",
+    "pytest-benchmark>=5.1.0",
+    # continuous benchmarking in ci (codspeed.io)
+    "pytest-codspeed>=5.0.3",
+    "pytest-cov",
+    "pillow>=11.0.0",
+    "twine>=6.1.0",
+    # type checking!
+    # another banger from astral.sh
+    "ty",
+    # docs (zensical is a project by the mkdocs-material team, that
+    # aims to be the successor to mkdocs-material and mkdocs itself)
+    "zensical>=0.0.50",
+    "termynal>=0.14.0",
+    "griffe-typingdoc",
+    "mkdocs-material",
+    "mkdocs-click",
+    "mkdocstrings-python",
+    "markdown-exec[ansi]",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["tests"]
+# A bare `pytest` runs the test suite only. The CodSpeed benchmark suite lives
+# in `benchmarks/` and is opted into explicitly (`pytest benchmarks --codspeed`).
+testpaths = ["tests"]
+# Default discovery excludes common build/venv dirs only.
+norecursedirs = [
+    ".*",
+    "build",
+    "dist",
+    "CVS",
+    "_darcs",
+    "{arch}",
+    "*.egg",
+    "venv",
+]
+
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.format]
+line-ending = "auto"
+
+[tool.ruff.lint.isort]
+known-first-party = ["ham"]
+# Automatic spacing (-1):
+# - 1 blank line between the last runtime import and `if TYPE_CHECKING:`
+# - 2 blank lines after the import / TYPE_CHECKING block before top-level
+#   content (class / function / assignment)
+# Forced `2` incorrectly puts two blanks *before* TYPE_CHECKING as well.
+lines-after-imports = -1
+no-lines-before = ["local-folder"]
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
+
+[tool.ruff.lint]
+preview = true
+select = [
+    "E301",
+    "E302",
+    "E303",
+    "E305",
+    "F401",
+    "I",
+    "TID252",
+]
