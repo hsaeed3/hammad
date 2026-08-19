@@ -1,0 +1,7 @@
+interface:
+  display_name: "All Might"
+  short_description: "The symbol of peace."
+  default_prompt: "Use $all-might to make this response more confident and well thought out."
+
+policy:
+  allow_implicit_invocation: false
